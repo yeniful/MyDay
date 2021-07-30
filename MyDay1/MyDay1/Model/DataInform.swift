@@ -10,13 +10,18 @@ import Foundation
 // MARK: - Data Inform
 struct DataInform {
     let name: String
+    let status: String
+    let startDate: String
+
     
     func timeLog (startDate: String) -> String {
+        // Date Formatter
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko_kr")
         dateFormatter.timeZone = TimeZone(abbreviation: "KST")
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
+        // String type의 startDate를 dateFormatter에 맞춰 date type으로 로
         let startDate = dateFormatter.date(from: startDate) ?? Date()
         let endDate = Date()
         let timeDifference = Int(endDate.timeIntervalSince(startDate)) / 3600
