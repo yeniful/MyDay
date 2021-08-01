@@ -6,6 +6,7 @@
 //
 
 // MARK: - Data Input
+/*
 let data = [
     DataInform(name: "예은", status: "wakeUp", startDate: "2021-07-31 08:00:00"),
     DataInform(name: "예은", status: "workOut", startDate: "2021-07-31 08:30:00"),
@@ -17,3 +18,4 @@ let data = [
     DataInform(name: "예은", status: "youTube", startDate: "2021-08-01 00:00:10"),
     DataInform(name: "예은", status: "sleep", startDate: "2021-08-01 01:00:00")
 ]
+*/

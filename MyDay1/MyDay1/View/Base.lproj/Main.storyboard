@@ -45,15 +45,15 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="70p-ve-yve">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="70p-ve-yve" customClass="TableViewCell" customModule="MyDay1" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="74.5" width="414" height="100.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="70p-ve-yve" id="VK1-8X-YVD">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hh0-6V-Yk9">
-                                                    <rect key="frame" x="105" y="60.5" width="35.5" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hh0-6V-Yk9" userLabel="Time Ago Label">
+                                                    <rect key="frame" x="102" y="60.5" width="35.5" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -65,7 +65,7 @@
                                                         <constraint firstAttribute="height" constant="60" id="gvo-oa-0cY"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0LZ-r5-sF5">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0LZ-r5-sF5" userLabel="Description Label">
                                                     <rect key="frame" x="100" y="26" width="284" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
@@ -79,15 +79,20 @@
                                                 <constraint firstAttribute="bottom" secondItem="hh0-6V-Yk9" secondAttribute="bottom" constant="23" id="R6J-Di-ELr"/>
                                                 <constraint firstItem="47J-Op-sQb" firstAttribute="leading" secondItem="VK1-8X-YVD" secondAttribute="leading" constant="20" id="ff3-hK-lLp"/>
                                                 <constraint firstItem="0LZ-r5-sF5" firstAttribute="leading" secondItem="47J-Op-sQb" secondAttribute="trailing" constant="20" id="gvd-zn-kwS"/>
-                                                <constraint firstItem="hh0-6V-Yk9" firstAttribute="leading" secondItem="47J-Op-sQb" secondAttribute="trailing" constant="25" id="iYI-hm-OpV"/>
+                                                <constraint firstItem="hh0-6V-Yk9" firstAttribute="leading" secondItem="47J-Op-sQb" secondAttribute="trailing" constant="22" id="iYI-hm-OpV"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="0LZ-r5-sF5" secondAttribute="trailing" constant="10" id="rgK-ct-CCb"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="0LZ-r5-sF5" id="jfl-ix-mg2"/>
+                                            <outlet property="statusImageView" destination="47J-Op-sQb" id="g0i-we-W5y"/>
+                                            <outlet property="timeAgoLabel" destination="hh0-6V-Yk9" id="MEN-HC-F9f"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="HIc-iX-tCh"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="p5f-RD-ly7"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="KfX-Ec-hhC"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="e4d-jz-aXd"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -101,7 +106,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="myDayTableView" destination="jPU-VW-AdL" id="Gcc-Od-nEU"/>
+                        <outlet property="myDayTableView" destination="jPU-VW-AdL" id="oVb-60-oD8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

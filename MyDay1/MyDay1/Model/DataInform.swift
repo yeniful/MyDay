@@ -8,72 +8,50 @@
 import Foundation
 
 // MARK: - Data Inform
-struct DataInform {
-    let name: String
-    let status: String
-    let startDate: String
+/*
+ {
+   "name": "yeni",
+   "status": "wakeUp",
+   "timeLog": "2021-07-31 08:00"
+ }
+ */
 
+
+// 타입(구조체) 생성 후 Codable 프로토콜을 준수하도록 채택
+struct Data: Codable {
     
-    func timeLog (startDate: String) -> String {
-        // Date Formatter
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ko_kr")
-        dateFormatter.timeZone = TimeZone(abbreviation: "KST")
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
-        // String type의 startDate를 dateFormatter에 맞춰 date type으로 로
-        let startDate = dateFormatter.date(from: startDate) ?? Date()
-        let endDate = Date()
-        let timeDifference = Int(endDate.timeIntervalSince(startDate)) / 3600
-        return "\(timeDifference)시간 전"
-    }
-    
+    let name: String?
+    let status: String?
+    let timeLog: String?
+
     enum Status: String {
         case wakeUp
         case workOut
-        case meal
+        case brunch
         case study
         case walk
+        case coding
         case youTube
         case sleep
         
-        func StatusLabel() -> String {
+        func statusMessage() -> String {
             switch self{
             case .wakeUp:
-                return "기상"
+                return "일어났어요? 오늘 하루를 시작해봐요."
             case .workOut:
-                return "운동"
-            case .meal:
-                return "식사"
+                return "운동 시작! 건강한 몸에 건강한 정신이 깃든다!"
+            case .brunch:
+                return "브런치 타임! 맛있게 먹어요. :)"
             case .study:
-                return "공부"
+                return "뽜이아!! 열공 힘내요."
             case .walk:
-                return "산책"
+                return "산책시간이에요. 댕댕이들과 힐링타임을~"
+            case .coding:
+                return "코딩할 때가 제일 멋져요!"
             case .youTube:
-                return "유튜브"
+                return "자기 전 유튜브는 못참죠~"
             case .sleep:
-                return  "취침"
-            /* default:
-                return "default status" */
-            }
-        }
-        
-        func StatusMessage() -> String {
-            switch self{
-            case .wakeUp:
-                return "힘차게 하루를 시작해보아요!"
-            case .workOut:
-                return "건강한 몸에 건강한 정신이 깃든다!"
-            case .meal:
-                return "꼭꼭 씹어서 먹어요."
-            case .study:
-                return "영차영차 열공해요."
-            case .walk:
-                return "댕댕이들과 힐링타임을~"
-            case .youTube:
-                return "자기 전 유튜브는 못참지~"
-            case .sleep:
-                return  "수고했어~ 오늘도~ 내일은 더 신나는 일들이 가득할거에요!"
+                return  "수고했어🎵 오늘도🎶 잘자요 :)"
             /* default:
                 return "default status" */
             }
@@ -81,5 +59,9 @@ struct DataInform {
         
         func statusImage() -> String { self.rawValue }
     }
-        
+    
+    // description
+    var description: String {
+        return self.name ?? "error" + ", " + "\(Data.Status.self)"
+    }
 }
