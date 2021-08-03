@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     
     
     // MARK: - Data
-    var datas: [Data] = []
+    var datas = DataModel(datas: [])
     var datasCount: Int { datas.count }
 
 
@@ -71,22 +71,16 @@ extension ViewController: UITableViewDataSource {
 
         guard let cell: TableViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as? TableViewCell else { return TableViewCell() }
 
-            let data: Data = self.datas[(datasCount - 1) - (indexPath.row)]
-            cell.statusImageView?.image = UIImage(named: data.status ?? "error")
-            cell.descriptionLabel?.text = data.status
-            cell.timeAgoLabel?.text = data.timeLog
+            let data: DataModel = self.datas[indexPath.row]
+        cell.statusImageView?.image = UIImage(named: datas.status ?? "error")
+            cell.descriptionLabel?.text = datas.status
+            cell.timeAgoLabel?.text = datas.timeLog
     
             return cell
     }
 }
 
 extension ViewController: UITableViewDelegate {
-    
-    
-    
-}
-
-extension ViewController {
     
     
     
