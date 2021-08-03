@@ -13,6 +13,12 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var timeAgoLabel: UILabel!
     
+    func inputCellData(data: DataInform) {
+        statusImageView?.image = UIImage(named: data.status ?? "error")
+        descriptionLabel?.text = data.status
+        timeAgoLabel?.text = data.timeLog
+    
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,3 +32,4 @@ class TableViewCell: UITableViewCell {
     }
     
 }
+

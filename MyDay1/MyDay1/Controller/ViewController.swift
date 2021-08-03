@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     // MARK: - Properties
     let cellIdentifier: String = "cell"
     
-    var datas: [Data] = []
+    var datas: [DataInform] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,21 +33,13 @@ class ViewController: UIViewController {
         }
         
         do {
-            self.datas = try jsonDecoder.decode([Data].self, from: dataAsset.data)
+            self.datas = try jsonDecoder.decode([DataInform].self, from: dataAsset.data)
         } catch {
             print(error.localizedDescription)
         }
-        
-        // 테이블 뷰 리로드
-        self.myDayTableView.reloadData()
     }
 
 }
-
-func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return UITableView.automaticDimension
-}
-
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,15 +48,11 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
         // guard let으로 바꾸기
         let cell: TableViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! TableViewCell
         
-        let data: Data = self.datas[indexPath.row]
-        cell.statusImageView?.image = UIImage(named: data.status ?? "error")
-        cell.descriptionLabel?.text = data.status
-        cell.timeAgoLabel?.text = data.timeLog
-
+        let data: DataInform = self.datas[indexPath.row]
+        cell.inputCellData(data: data)
         
         return cell
     }

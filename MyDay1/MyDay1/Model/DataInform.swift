@@ -18,12 +18,13 @@ import Foundation
 
 
 // 타입(구조체) 생성 후 Codable 프로토콜을 준수하도록 채택
-struct Data: Codable {
+struct DataInform: Codable {
     
     let name: String?
     let status: String?
     let timeLog: String?
 
+    /*
     enum Status: String {
         case wakeUp
         case workOut
@@ -64,4 +65,5 @@ struct Data: Codable {
     var description: String {
         return self.name ?? "error" + ", " + "\(Data.Status.self)"
     }
+ */
 }
